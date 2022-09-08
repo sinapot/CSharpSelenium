@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpFundamentals", "CSharpFundamentals\CSharpFundamentals.csproj", "{2131F005-5DF8-41DD-9C2B-2DA3C6CC8AAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumNunit", "SeleniumNunit\SeleniumNunit.csproj", "{B9D0BE37-D1F1-49B0-93B6-1AFDF35AADF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumNunitFramework", "SeleniumNunit\SeleniumNunitFramework.csproj", "{B9D0BE37-D1F1-49B0-93B6-1AFDF35AADF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

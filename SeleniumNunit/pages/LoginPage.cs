@@ -33,5 +33,15 @@ namespace SeleniumNunitFramework.pages
         {
             return username;
         }
+
+        public IWebElement getPassword()
+        {
+            return password;
+        }
+
+        public IWebElement getLoginButton()
+        {
+            return loginBtn;
+        }
     }
 }

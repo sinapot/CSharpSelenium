@@ -15,6 +15,8 @@ namespace SeleniumNunitFramework.utilities
     public class Base
     {
         public IWebDriver driver;
+
+
         [SetUp]
         public void StartBrowser()
         {

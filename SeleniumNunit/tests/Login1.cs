@@ -19,7 +19,7 @@ namespace SeleniumNunitFramework.tests
     {
 
         [Test]
-        //parameterized test attribute
+        //parameterized test using Nunit TestCase tag
         [TestCase("standard_user", "secret_sauce")]
         [TestCase("performance_glitch_user", "secret_sauce")]
         public void ParameterizedLogin1(string username, string password)
@@ -36,7 +36,7 @@ namespace SeleniumNunitFramework.tests
         }
 
         [Test]
-        //parameterized test attribute
+        //parameterized test using NUnit TestCaseSource tag
         [TestCaseSource(nameof(UserNames))]
         public void ParameterizedLogin2(string username, string password)
         {
@@ -51,6 +51,8 @@ namespace SeleniumNunitFramework.tests
             Assert.That(currentUrl.Equals("https://www.saucedemo.com/inventory.html"));
         }
 
+
+        //Test Data Source from Hard Coded
         public static IEnumerable<TestCaseData> UserNames()
         {
             yield return new TestCaseData("standard_user", "secret_sauce");

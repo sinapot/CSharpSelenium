@@ -40,7 +40,7 @@ namespace SeleniumNunitFramework.utilities
         }
 
 
-        //setup runs before each step
+        //setup runs before each TEST
         [SetUp]
         public void StartBrowser()
         {
@@ -54,7 +54,7 @@ namespace SeleniumNunitFramework.utilities
             InitBrowser("Chrome");
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            driver.Manage().Window.Maximize();
+            //driver.Manage().Window.Maximize();
             driver.Url = "https://www.saucedemo.com/";
         }
 

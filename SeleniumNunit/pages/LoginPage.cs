@@ -13,6 +13,7 @@ namespace SeleniumNunitFramework.pages
     {
 
         private IWebDriver driver;
+
         public LoginPage(IWebDriver driver)
         {
             this.driver = driver;

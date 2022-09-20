@@ -22,7 +22,7 @@ namespace SeleniumNunitFramework.tests
         [Test]
         //parameterized test using NUnit TestCaseSource tag
         [TestCaseSource(nameof(UserNames))]
-        public void ParameterizedJSONLogin(string username, string password)
+        public void AddingProductInCart(string username, string password)
         {
             //Login
             LoginPage loginPage = new LoginPage(getDriver());
@@ -34,13 +34,35 @@ namespace SeleniumNunitFramework.tests
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(8));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName("title")));
 
+            //add to cart
             driver.FindElement(By.PartialLinkText("Bike Light")).Click();
             driver.FindElement(By.CssSelector("#add-to-cart-sauce-labs-bike-light")).Click();
             driver.FindElement(By.CssSelector("#shopping_cart_container")).Click();
-
+            //assert product is added
             String cartProduct = driver.FindElement(By.CssSelector(".inventory_item_name")).Text;
-
             Assert.That(cartProduct, Is.EqualTo("Sauce Labs Bike Light"));
+
+            //click checkout
+            driver.FindElement(By.CssSelector("#checkout")).Click();
+
+            //fill form
+            driver.FindElement(By.CssSelector("#first-name")).SendKeys("John");
+            driver.FindElement(By.CssSelector("#last-name")).SendKeys("Smith");
+            driver.FindElement(By.CssSelector("#postal-code")).SendKeys("555");
+
+            //click Continue
+            driver.FindElement(By.CssSelector("#continue")).Click();
+
+            //assert Checkout:Overview
+            String shippingInfo = driver.FindElement(By.CssSelector("div[class='summary_info'] div:nth-child(4)")).Text;
+            Assert.That(shippingInfo, Is.EqualTo("FREE PONY EXPRESS DELIVERY!"));
+
+            //click Finish
+            driver.FindElement(By.CssSelector("#finish")).Click();
+
+            //assert final URL is correct
+            String completeUrl = driver.Url;
+            Assert.That(completeUrl, Is.EqualTo("https://www.saucedemo.com/checkout-complete.html"));
 
         }
 
